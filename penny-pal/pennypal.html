@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PennyPal</title>
+    <link rel="stylesheet" href="pennypal.css" />
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script type="module" src="firebase-config.js" defer></script>
+   
+    <script type="module" src="pennypal.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1><span class="green">Penny</span>Pal</h1>
+        <input type="text" placeholder="First Name" id="Fname" />
+        <input type="text" placeholder="Last Name" id="Lname" />
+        <input type="email" placeholder="Email" id="email" />
+        <input type="password" placeholder="Password" id="password" />
+
+        <button id="registerBtn">Register</button>
+        <button id="googleLoginBtn">Sign in with Google</button>
+        <p class="redirect-text">
+            Already have an account? <a href="signin.html">Sign in</a>
+    </div>
+</body>
+
+</html>

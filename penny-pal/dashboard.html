@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PennyPal Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>PennyPal</h2>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                
+            </ul>
+            <button id="signOutBtn">Sign Out</button>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div id="userWelcome">Welcome</div>
+                <button id="newExpenseBtn">+ Add Expense</button>
+            </header>
+
+            <section class="summary">
+                <div>
+                    <h3>Set Income</h3>
+                    <form id="incomeForm">
+                        <input type="decimal" id="incomeAmount" placeholder="Enter income" required />
+                        <button type="submit">Add Income</button>
+                    </form>
+                    <button id="deleteIncomeBtn" class="danger-btn">Delete All Income</button>
+                </div>
+
+                <div>
+                    <h3>Set Budget</h3>
+                    <form id="budgetForm" class="budget-form">
+                        <input type="decimal" id="budgetAmount" placeholder="Enter budget" required />
+                        <button type="submit">Save Budget</button>
+                    </form>
+                    <button id="deleteBudgetBtn" class="danger-btn">Delete Budget</button>
+                    <p id="budgetInfo">No budget set</p>
+                    <div id="budgetWarning" style="color: #3e8e41"></div>
+
+                </div>
+                <div>
+                    <h3>Total Income</h3>
+                    <p id="totalIncome">$0.00</p>
+                </div>
+                <div>
+                    <h3>Total Spent</h3>
+                    <p id="totalSpent">$0.00</p>
+                </div>
+                <div>
+                    <h3>Remaining</h3>
+                    <p id="remaining">$0.00</p>
+                </div>
+            </section>
+
+            <div class="chart-goal-container">
+                <canvas id="expenseChart"></canvas>
+            
+                <div class="goal-section">
+                    <h3>Set a Financial Goal</h3>
+                    <form id="goalForm">
+                        <input type="text" id="goalDescription" placeholder="e.g. Save for new laptop (Max 2 Goals)" required />
+                        <input type="decimal" id="goalAmount" placeholder="Goal Amount" required />
+                        <button type="submit">Save Goal</button>
+                    </form>
+                    <button id="deleteGoalBtn" class="danger-btn">Delete Goal</button>
+                    <div id="goalsDisplay" class="goals-container"></div>
+
+                </div>
+            </div>
+            
+            <section class="expenses">
+
+                <h3>Expenses</h3>
+                <div id="expenseList" class="expenses-list">
+                    <p class="empty-msg">No expenses yet. Click + to add one.</p>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="expenseModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Add Expense</h2>
+            <form id="expenseForm">
+                <input type="decimal" id="amount" placeholder="Enter your amount" required />
+                <input type="text" id="category" placeholder="Enter category" required />
+
+                <input type="date" id="date" required />
+                <button type="submit">Save</button>
+                <button type="button" id="closeModal">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

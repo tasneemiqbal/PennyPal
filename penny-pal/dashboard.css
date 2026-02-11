@@ -1,0 +1,450 @@
+body {
+   background-color: #1c1c1c;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #1e1e1e;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+  color: #4CAF50;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.sidebar ul a:hover {
+  background: #333;
+}
+
+.sidebar button {
+  margin-top: 20px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+#userWelcome {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+#newExpenseBtn {
+  background: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+#newExpenseBtn:hover {
+  background: #3e8e41;
+}
+
+.summary {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.summary div {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.summary h3 {
+  margin-top: 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.summary p {
+  font-size: 1.0rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 30px 0 0;
+  color: #1e1e1e;
+}
+
+#expenseChart {
+  margin: 30px 0;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+}
+
+.expenses {
+  margin-top: 30px;
+}
+
+.expenses h3 {
+  margin-bottom: 20px;
+  color: white
+}
+
+.expenses-list {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-item span:first-child {
+  font-weight: 600;
+}
+
+.expense-item span:last-child {
+  color: #666;
+}
+
+.empty-msg {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #1e1e1e;
+  
+}
+
+.modal-content input,
+.modal-content select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-content button[type="submit"] {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.modal-content button[type="submit"]:hover {
+  background: #3e8e41;
+}
+
+.modal-content button[type="button"] {
+  background: #f4f4f4;
+  color: #333;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.modal-content button[type="button"]:hover {
+  background: #e0e0e0;
+}
+
+#incomeForm {
+  display: flex;
+  gap: 10px;
+}
+
+#incomeForm input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#incomeForm button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-expense {
+  background: transparent;
+  border: none;
+  color: #ff4d4d;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.expense-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.expense-category {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.expense-meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.danger-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.danger-btn:hover {
+  background: #e60000;
+}
+
+.budgetAmount {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#budgetForm,
+.budget-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#budgetForm input,
+.budget-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+} 
+
+#budgetForm button,
+.budget-form button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#budgetForm button:hover,
+.budget-form button:hover {
+  background: #3e8e41;
+}
+
+.goal-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 0px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.goal-section h3 {
+  margin-top: 0;
+  color: #555;
+}
+
+#goalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#goalForm input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#goalForm button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#goalForm button:hover {
+  background: #3e8e41;
+}
+
+.chart-goal-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+#expenseChart {
+  flex: 1;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.goal-section {
+  flex: 1;
+  background: #f8f8f8;
+   min-width: 300px;
+ min-height: 560px; 
+  flex-direction: column;
+  justify-content: space-between;
+    display: flex;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  gap: 0.75rem
+}
+
+#deleteGoalBtn{
+  margin-top :0.5rem
+}
+
+.goal-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom : 0.5rem
+}
+
+.goal-section input,
+.goal-section button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+
