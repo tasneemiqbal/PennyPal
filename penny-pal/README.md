@@ -28,5 +28,13 @@ PennyPal is a web-based Personal Budget Management System that helps users track
 
 ---
 
+## Running
+
+Run using command line
+- ```python3 main.py```
+- Open pennypal.html in a live server
+
+---
+
 Go to Docs -> CECS S25 SE Project Template for a detailed description.
 
